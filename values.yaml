@@ -1,0 +1,21 @@
+replicaCount: 1
+
+image:
+  repository: redis
+  tag: 7.0.0
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 6379
+
+persistence:
+  enabled: true
+  storageClass: ""  # ถ้าไม่มี StorageClass ให้ใช้ local
+  accessMode: ReadWriteOnce
+  size: 1Gi
+
+resources: {}
+nodeSelector: {}
+tolerations: []
+affinity: {}
